@@ -1,0 +1,26 @@
+RIM Labels and Control Flow Example
+RIM Demonstrates GOTA and COLL commands
+
+ECKO Starting program...
+SEP counter = 0
+
+:start
+ECKO In start label
+COLL subroutine
+ECKO Back from subroutine
+
+RIM Check if we should loop
+SEP counter = 1
+IZ %counter% == 0 GOTA start
+
+ECKO Continuing after loop...
+GOTA end
+
+:subroutine
+ECKO Inside subroutine
+ECKO This was called with COLL
+ECKO Subroutine complete
+
+:end
+ECKO Program finished!
+EXIS 0

@@ -1,0 +1,15 @@
+RIM Hello World Example
+RIM This is a simple script that demonstrates ECKO command
+
+ECKO Hello, World!
+ECKO Welcome to the Batch-Inspired Scripting Language!
+ECKO
+ECKO This interpreter supports one-letter variations of batch commands:
+ECKO - ECKO (instead of ECHO)
+ECKO - SEP (instead of SET)
+ECKO - IZ (instead of IF)
+ECKO - GOTA (instead of GOTO)
+ECKO - COLL (instead of CALL)
+ECKO - RIM (instead of REM)
+ECKO - PAUS (instead of PAUSE)
+ECKO - EXIS (instead of EXIT)

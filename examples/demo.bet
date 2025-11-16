@@ -1,0 +1,59 @@
+RIM Comprehensive Example
+RIM Demonstrates multiple features
+
+ECKO ========================================
+ECKO   Batch-Inspired Language Demo
+ECKO ========================================
+ECKO
+
+RIM Initialize variables
+SEP username = User
+SEP version = 1.0
+
+ECKO Welcome %username% to version %version%
+ECKO
+
+RIM Menu loop
+:menu
+ECKO --- Menu ---
+ECKO 1. Variables Test
+ECKO 2. Conditionals Test
+ECKO 3. Exit
+ECKO
+
+RIM Simulate choosing option 1
+SEP choice = 1
+
+IZ %choice% == 1 GOTA variables_test
+IZ %choice% == 2 GOTA conditionals_test
+IZ %choice% == 3 GOTA exit
+
+GOTA menu
+
+:variables_test
+ECKO
+ECKO Testing Variables...
+SEP name = John Doe
+SEP email = john@example.com
+ECKO Name: %name%
+ECKO Email: %email%
+GOTA done
+
+:conditionals_test
+ECKO
+ECKO Testing Conditionals...
+SEP status = OK
+IZ %status% == OK ECKO Status check passed!
+IZ %status% != ERROR ECKO No errors detected
+GOTA done
+
+:done
+ECKO
+ECKO Test complete!
+GOTA exit
+
+:exit
+ECKO
+ECKO Thank you for using the interpreter!
+ECKO Exiting...
+EXIS 0

@@ -1,0 +1,25 @@
+RIM Variable Example
+RIM Demonstrates SEP command for setting variables
+
+ECKO Setting variables...
+SEP name = Alice
+SEP age = 25
+SEP city = New York
+
+ECKO
+ECKO Name: %name%
+ECKO Age: %age%
+ECKO City: %city%
+
+RIM Modify variables
+SEP name = Bob
+SEP message = Hello %name%, you are %age% years old!
+
+ECKO
+ECKO %message%
+
+RIM Variables in expressions
+SEP x = 10
+SEP y = 20
+ECKO x = %x%
+ECKO y = %y%

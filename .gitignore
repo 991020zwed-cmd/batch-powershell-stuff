@@ -1,0 +1,29 @@
+# Compiled object files
+*.o
+*.obj
+
+# Compiled executables
+interpreter
+interpreter.exe
+
+# Build artifacts
+*.out
+*.exe
+*.app
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db

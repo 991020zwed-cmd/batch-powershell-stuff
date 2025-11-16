@@ -1,0 +1,29 @@
+RIM Conditional Statements Example
+RIM Demonstrates IZ command for conditionals
+
+ECKO Testing conditional statements...
+ECKO
+
+RIM Test equality
+SEP value1 = hello
+SEP value2 = hello
+IZ %value1% == %value2% ECKO value1 equals value2
+
+SEP value3 = world
+IZ %value1% == %value3% ECKO This should not print
+
+RIM Test inequality
+IZ %value1% != %value3% ECKO value1 does not equal value3
+
+RIM Conditional with string literals
+SEP status = active
+IZ %status% == active ECKO Status is active
+IZ %status% == inactive ECKO Status is inactive
+
+RIM Test with numbers
+SEP count = 5
+IZ %count% == 5 ECKO Count is five
+IZ %count% != 10 ECKO Count is not ten
+
+ECKO
+ECKO All conditional tests complete!
