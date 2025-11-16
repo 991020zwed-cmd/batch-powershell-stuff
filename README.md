@@ -2,13 +2,45 @@
 
 A C-based interpreter for a batch-inspired scripting language with one-letter variations from standard batch commands. Uses the custom `.bet` (Batch Extended) file extension.
 
+## 🚀 Quick Start - Download Pre-Built Executable
+
+**Don't want to compile?** Download the pre-built executable for your platform!
+
+### Download from GitHub Actions
+
+1. Go to the [Actions tab](../../actions)
+2. Click the latest successful workflow run
+3. Download the artifact for your platform:
+   - **interpreter-windows** (Windows .exe)
+   - **interpreter-linux** (Linux)
+   - **interpreter-macos** (macOS)
+
+### Running the Downloaded Executable
+
+**Windows:**
+```cmd
+interpreter.exe script.bet    # Run a script
+interpreter.exe               # Interactive mode
+```
+
+**Linux/macOS:**
+```bash
+chmod +x interpreter          # First time only
+./interpreter script.bet      # Run a script
+./interpreter                 # Interactive mode
+```
+
+**📥 For detailed download instructions, see [DOWNLOAD.md](DOWNLOAD.md)**
+
+---
+
 ## Overview
 
 This project implements a custom scripting language interpreter written in C that mimics Windows Batch scripting but with single-letter differences in command names. It supports script execution from files and an interactive REPL mode.
 
 **File Extension:** `.bet` (Batch Extended)
 
-## Building
+## Building from Source
 
 ### Linux/Unix
 
