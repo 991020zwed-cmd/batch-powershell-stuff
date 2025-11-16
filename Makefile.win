@@ -1,0 +1,45 @@
+# Makefile for Windows (MinGW)
+# Use: make -f Makefile.win
+
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c99 -O2
+TARGET = interpreter.exe
+OBJS = main.o interpreter.o lexer.o utils.o commands.o executor.o
+
+.PHONY: all clean test
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+
+main.o: main.c interpreter.h
+	$(CC) $(CFLAGS) -c main.c
+
+interpreter.o: interpreter.c interpreter.h
+	$(CC) $(CFLAGS) -c interpreter.c
+
+lexer.o: lexer.c interpreter.h
+	$(CC) $(CFLAGS) -c lexer.c
+
+utils.o: utils.c interpreter.h
+	$(CC) $(CFLAGS) -c utils.c
+
+commands.o: commands.c interpreter.h
+	$(CC) $(CFLAGS) -c commands.c
+
+executor.o: executor.c interpreter.h
+	$(CC) $(CFLAGS) -c executor.c
+
+clean:
+	del /Q $(OBJS) $(TARGET) 2>nul
+
+test: $(TARGET)
+	@echo Running test scripts...
+	@$(TARGET) examples\hello.bet
+	@echo.
+	@$(TARGET) examples\variables.bet
+	@echo.
+	@$(TARGET) examples\conditionals.bet
+	@echo.
+	@$(TARGET) examples\labels.bet

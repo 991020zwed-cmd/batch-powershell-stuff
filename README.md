@@ -10,21 +10,54 @@ This project implements a custom scripting language interpreter written in C tha
 
 ## Building
 
-### Prerequisites
+### Linux/Unix
+
+#### Prerequisites
 - GCC or compatible C compiler
 - Make
 
-### Compilation
+#### Compilation
 ```bash
 make
 ```
 
 This will produce an executable named `interpreter`.
 
-### Clean Build Artifacts
+#### Clean Build Artifacts
 ```bash
 make clean
 ```
+
+### Windows
+
+#### Prerequisites
+- MinGW-w64 (GCC for Windows) or Visual Studio
+
+#### Quick Build
+Double-click `build.bat` or run in Command Prompt:
+```cmd
+build.bat
+```
+
+This will create `interpreter.exe`.
+
+#### Using Make on Windows
+```cmd
+make -f Makefile.win
+```
+
+#### Manual Compilation
+```cmd
+gcc -Wall -Wextra -std=c99 -O2 -c main.c
+gcc -Wall -Wextra -std=c99 -O2 -c interpreter.c
+gcc -Wall -Wextra -std=c99 -O2 -c lexer.c
+gcc -Wall -Wextra -std=c99 -O2 -c utils.c
+gcc -Wall -Wextra -std=c99 -O2 -c commands.c
+gcc -Wall -Wextra -std=c99 -O2 -c executor.c
+gcc -o interpreter.exe main.o interpreter.o lexer.o utils.o commands.o executor.o
+```
+
+**For detailed Windows build instructions, see [WINDOWS_BUILD.md](WINDOWS_BUILD.md)**
 
 ## Usage
 

@@ -1,0 +1,36 @@
+# Makefile for cross-compiling to Windows from Linux
+# Use: make -f Makefile.cross
+# Requires: mingw-w64 (sudo apt-get install mingw-w64)
+
+CC = x86_64-w64-mingw32-gcc
+CFLAGS = -Wall -Wextra -std=c99 -O2
+TARGET = interpreter.exe
+OBJS = main.o interpreter.o lexer.o utils.o commands.o executor.o
+
+.PHONY: all clean
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+
+main.o: main.c interpreter.h
+	$(CC) $(CFLAGS) -c main.c
+
+interpreter.o: interpreter.c interpreter.h
+	$(CC) $(CFLAGS) -c interpreter.c
+
+lexer.o: lexer.c interpreter.h
+	$(CC) $(CFLAGS) -c lexer.c
+
+utils.o: utils.c interpreter.h
+	$(CC) $(CFLAGS) -c utils.c
+
+commands.o: commands.c interpreter.h
+	$(CC) $(CFLAGS) -c commands.c
+
+executor.o: executor.c interpreter.h
+	$(CC) $(CFLAGS) -c executor.c
+
+clean:
+	rm -f $(OBJS) $(TARGET)
