@@ -28,7 +28,7 @@ int execute_ecko(InterpreterState* state, Token* tokens, int token_count) {
 
 /* Execute SEP command (set) */
 int execute_sep(InterpreterState* state, Token* tokens, int token_count) {
-    if (token_count < 4) {
+    if (token_count < 3) {
         fprintf(stderr, "Error: SEP requires variable name and value\n");
         return 1;
     }
@@ -44,7 +44,7 @@ int execute_sep(InterpreterState* state, Token* tokens, int token_count) {
         return 1;
     }
     
-    /* Collect all remaining tokens as the value */
+    /* Collect all remaining tokens as the value (or empty string if no value) */
     char value[MAX_LINE_LENGTH] = "";
     for (int i = 3; i < token_count; i++) {
         if (tokens[i].type == TOKEN_VARIABLE) {
@@ -193,6 +193,7 @@ int execute_coll(InterpreterState* state, Token* tokens, int token_count) {
 
 /* Execute PAUS command (pause) */
 int execute_paus(InterpreterState* state) {
+    (void)state;  /* Unused but required for function signature consistency */
     printf("Press Enter to continue...");
     fflush(stdout);
     getchar();
